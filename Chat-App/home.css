@@ -15,7 +15,7 @@
 
 .main {
   display: flex;
-  height: 200vh;
+  min-height: 100vh;
   flex-direction: column;
 }
 
@@ -142,4 +142,34 @@
   background-color: #ffffff;
   width: calc(100vw - 360px);
   border-bottom: 1px solid rgb(216, 216, 216);
+}
+
+.message-input {
+  background-color: rgb(255, 255, 255);
+  position: fixed;
+  bottom: 0;
+  width: calc(100vw - 360px);
+  padding: 20px 16px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.message-input textarea {
+  width: calc(100% - 40px);
+  border: 1px solid rgb(83, 172, 255);
+  border-radius: 6px;
+  min-height: 80px;
+  resize: none;
+  font-size: 18px;
+}
+
+.message-input button {
+  background-color: rgb(255, 255, 255);
+  border: none;
+  width: 20px;
+  margin: 0 10px;
+}
+
+.message-input button img {
+  width: 30px;
 }
