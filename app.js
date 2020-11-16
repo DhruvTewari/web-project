@@ -126,7 +126,8 @@ app.use('/routes',usersRoute);
 
 // LISTENING TO SERVER
 // ===================
-var port = process.env.PORT || 3000;
-server.listen(3000, function () {
-  console.log("SERVER RUNNING ON PORT " + port);
+const { PORT=3000, LOCAL_ADDRESS='0.0.0.0' } = process.env
+server.listen(PORT, LOCAL_ADDRESS, () => {
+  const address = server.address();
+  console.log('server listening at', address);
 });
