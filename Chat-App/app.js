@@ -60,6 +60,10 @@ app.get("/", (req, res) => {
   res.render("home.hbs");
 });
 
+app.get("/chat", (req,res)=>{
+  res.render("chat.hbs");
+});
+
 app.get('/signin', (req, res) => {
   res.render('signin.hbs')
 })

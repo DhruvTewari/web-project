@@ -57,7 +57,8 @@ router.post('/users/signin', (req, res)=>{
       console.log(foundUser);
       res.render('home',{username: foundUser.username, error:""});
     } else{
-      return res.render('signin',{error: "Account doesn't exist"});
+      
+      return res.render('signin',{error: "Either Account Doesn't Exist Or Wrong Credentials "});
     }
   })
 })
