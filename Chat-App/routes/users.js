@@ -58,9 +58,21 @@ router.post('/users/signin', (req, res)=>{
       res.render('home',{username: foundUser.username, error:""});
     } else{
       
-      return res.render('signin',{error: "Either Account Doesn't Exist Or Wrong Credentials "});
+      return res.render('signin',{error: "Either Account Doesn't Exist Or Wrong Credentials"});
     }
   })
+})
+
+
+
+router.post('/users/chat' ,(req,res) => {
+  const username = req.body.username
+  const room = req.body.room
+
+  if(!username || !room){
+    return res.render('sigin.hbs', { username })
+  }
+  res.render('home.hbs',{ username, room })
 })
 
 module.exports = router
