@@ -3,7 +3,7 @@ var chat = document.getElementById('msgs');
 
 socket.on("message", (message) => {
   console.log(message);
-  chat.innerHTML=`${message}`
+  
 });
 
 socket.on("store", (message) => {

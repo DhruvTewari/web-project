@@ -8,7 +8,7 @@ const jwtExpirySeconds = 600;
 
 router.post('/users/signup', (req, res) => {
     console.log(req.body);
-    const username = 'server';
+    const username = req.body.username;
     const email = req.body.email;
     const password = req.body.password;
   console.log('rec');
@@ -30,7 +30,9 @@ router.post('/users/signup', (req, res) => {
     res.cookie("token", token, { maxAge: jwtExpirySeconds * 1000 });
     console.log('cookie sent');
     // res.send('')
-    res.redirect('/');
+    res.render('home',{
+      username: username
+    });
     
   }
 })
@@ -42,13 +44,14 @@ router.post('/users/signin', (req, res)=>{
   User.findOne({
     email: email,
     password: password
-  },(error, fonundUser)=>{
+  },(error, foundUser)=>{
     if(error){
       console.log('error')
       res.redirect('/signin');
     }
-    if(fonundUser){
-      res.render('home',fonundUser);
+    if(foundUser){
+      console.log(foundUser);
+      res.render('home',{username: foundUser.username});
     } else{
       res.redirect('/signup');
     }
