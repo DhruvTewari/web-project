@@ -36,7 +36,6 @@ router.post('/users/signup', (req, res) => {
 })
 
 router.post('/users/signin', (req, res)=>{
-
   console.log('hello')
   const email = req.body.email;
   const password = req.body.password;

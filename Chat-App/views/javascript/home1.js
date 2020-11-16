@@ -1,7 +1,9 @@
 const socket = io();
+var chat = document.getElementById('msgs');
 
 socket.on("message", (message) => {
   console.log(message);
+  chat.innerHTML=`${message}`
 });
 
 socket.on("store", (message) => {
@@ -15,7 +17,7 @@ var search = document.getElementById('search');
 btn.addEventListener('click', ()=>{
   // console.log(textContent.value);
   socket.emit("message", textContent.value);
-  socket.emit("current", search.value)
+  
   textContent.value = "";
 });
 // emit message for other clients

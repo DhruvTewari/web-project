@@ -39,18 +39,13 @@ io.on("connection", (socket) => {
 
   socket.emit("message", "WELCOME TO Vartalap");
 
+  
   socket.broadcast.emit("message", "Someone has joined");
 
   socket.on("message", (message) => {
     io.emit("store", message);
   });
 
-  socket.on("current", (name)=>{
-    
-      currentUser = name;
-     console.log(name);
-
-  })
 
   socket.on("disconnect", () => {
     io.emit("message", "Someone has left the chat");
