@@ -97,8 +97,6 @@ io.on('connection', (socket) => {
 })
 
 
-var usersRoute = require('./routes/users');
-app.use('/routes',usersRoute);
 
 app.get("/", (req, res) => {
   res.render("index.hbs");
@@ -120,6 +118,9 @@ app.get('/signup', (req, res) => {
 app.get("/chat" ,(req,res) => {
   res.render("chat.hbs")
 })
+
+var usersRoute = require('./routes/users');
+app.use('/routes',usersRoute);
 
 
 
