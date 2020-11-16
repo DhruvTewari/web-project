@@ -1,4 +1,6 @@
 const mongoose = require('mongoose')
+const validator = require('validator')
+const bcrypt = require('bcryptjs')
 
 const userSchema = new mongoose.Schema({
     username: {
@@ -15,9 +17,10 @@ const userSchema = new mongoose.Schema({
     password : {
         type:String,
         required:true,
+        
     },
-    
 })
+
 
 const User = mongoose.model('User', userSchema)
 

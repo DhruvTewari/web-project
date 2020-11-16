@@ -13,7 +13,7 @@ router.post('/users/signup', (req, res) => {
     const password = req.body.password;
   console.log('rec');
   if (!email || !password || !username) {
-    res.send("Invalid REQUEST");
+    return res.render('signup',{error: "Fill The Details"});
   } else {
     User.create({
       username: username,
@@ -41,6 +41,10 @@ router.post('/users/signin', (req, res)=>{
   console.log('hello')
   const email = req.body.email;
   const password = req.body.password;
+
+  if (!email || !password) {
+    return res.render('signin',{error: "Credentials Are Invalid"});
+  }
   User.findOne({
     email: email,
     password: password
@@ -51,9 +55,9 @@ router.post('/users/signin', (req, res)=>{
     }
     if(foundUser){
       console.log(foundUser);
-      res.render('home',{username: foundUser.username});
+      res.render('home',{username: foundUser.username, error:""});
     } else{
-      res.redirect('/signup');
+      return res.render('signin',{error: "Account doesn't exist"});
     }
   })
 })
