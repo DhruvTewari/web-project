@@ -57,7 +57,7 @@ socket.on('message', (message) => {
     
     
     // $messages.insertAdjacentHTML('beforeend', html)
-    // autoscroll()
+    autoscroll()
 })
 
 socket.on('locationMessage', (message) => {
