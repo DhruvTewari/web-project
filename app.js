@@ -31,7 +31,7 @@ app.use(bodyParser.json());
 app.use(methodOverride("_method"));
 app.use(cors());
 
-mongoose.connect('mongodb://127.0.0.1:27017/chat-app-api', {
+mongoose.connect('mongodb+srv://dhruv:dhruv@cluster0.uz3yq.mongodb.net/chat-app-api?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useCreateIndex: true,
     useFindAndModify: true,
