@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "dev": "nodemon app.js -e js,hbs"
+    "dev": "nodemon app.js -e js,hbs",
+    "npm start"  : "node app.js"
   },
-  "author": "Rhythm Narula",
+  "author": "Group 2",
   "license": "ISC",
   "dependencies": {
     "bad-words": "^3.0.3",
