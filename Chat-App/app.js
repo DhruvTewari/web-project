@@ -101,6 +101,10 @@ var usersRoute = require('./routes/users');
 app.use('/routes',usersRoute);
 
 app.get("/", (req, res) => {
+  res.render("index.hbs");
+});
+
+app.get("/home", (res, req)=>{
   res.render("home.hbs");
 });
 
